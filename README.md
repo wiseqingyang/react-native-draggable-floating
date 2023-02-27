@@ -11,16 +11,22 @@ npm install react-native-draggable-floating
 ## Usage
 
 ```js
-import { multiply } from 'react-native-draggable-floating';
+import DraggableView from 'react-native-draggable-floating';
 
 // ...
 
-const result = await multiply(3, 7);
+<DraggableView>
+  <View />
+</DraggableView>
 ```
 
-## Contributing
+## Props
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+
+ Prop | Type | Default | Description 
+ --- | --- | --- | ---
+ `stickyLeft` | `boolean` | `false` | Whether to stick to the left side of its parent. 
+`initialOffsetY` | `number` | 0 | The initial offset of the widget from the top of its parent. If negative, the offset will be the bottom. 
 
 ## License
 
