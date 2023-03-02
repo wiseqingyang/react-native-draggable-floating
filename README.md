@@ -2,6 +2,7 @@
 
 A simple draggable widget sticky to left or right side of its parent. Using the `react-native-reanimated` and `react-native-gesture-handler`.  
 
+![demo](./demo.gif)
 ## Installation
 
 ```sh
@@ -12,8 +13,6 @@ npm install react-native-draggable-floating
 
 ```js
 import DraggableView from 'react-native-draggable-floating';
-
-// ...
 
 <DraggableView>
   <View />
