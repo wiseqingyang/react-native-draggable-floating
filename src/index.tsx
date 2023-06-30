@@ -2,6 +2,7 @@ import React, { FC, useLayoutEffect, useMemo, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
+  runOnJS,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
@@ -11,6 +12,7 @@ import LayoutMeasurer from './LayoutMeasurer';
 interface IProps {
   stickyLeft?: boolean;
   initialOffsetY?: number;
+  onPositionChange?: (offsetX: number, offsetY: number) => void;
   children: React.ReactNode;
 }
 
@@ -23,6 +25,7 @@ const DraggableView: FC<IProps> = ({
   stickyLeft,
   initialOffsetY = 0,
   children,
+  onPositionChange,
 }) => {
   const [containerLayout, setContainerLayout] = useState({
     width: 0,
@@ -104,8 +107,18 @@ const DraggableView: FC<IProps> = ({
               y: offsetY.value,
             };
           }
+          if (onPositionChange) {
+            runOnJS(onPositionChange)(savedOffset.value.x, savedOffset.value.y);
+          }
         }),
-    [offsetX, offsetY, savedOffset, containerLayout, draggableLayout]
+    [
+      offsetX,
+      offsetY,
+      savedOffset,
+      containerLayout,
+      draggableLayout,
+      onPositionChange,
+    ]
   );
 
   const animatedStyle = useAnimatedStyle(() => ({

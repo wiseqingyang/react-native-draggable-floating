@@ -26,6 +26,7 @@ import DraggableView from 'react-native-draggable-floating';
  --- | --- | --- | ---
  `stickyLeft` | `boolean` | `false` | Whether to stick to the left side of its parent. 
 `initialOffsetY` | `number` | 0 | The initial offset of the widget from the top of its parent. If negative, the offset will be the bottom. 
+`onPositionChange` | `(x: number; y: number) => void` | undefined | call back when you release the widget and after the sticky animation, it's useful when you want to save the position when recreating the container view
 
 ## License
 
