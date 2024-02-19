@@ -130,6 +130,7 @@ const DraggableView: FC<IProps> = ({
         translateY: offsetY.value,
       },
     ],
+    opacity: withTiming(draggableLayout.width ? 1 : 0),
   }));
 
   return (
